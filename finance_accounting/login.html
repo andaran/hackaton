@@ -8,32 +8,37 @@
 </head>
 <body>
     <main class="content">
-        <form class="form_login" action="/login/" method="POST">
+        <div class="form_login">
             <input class="input input_email" type="email" id="email" name="email" placeholder="Введите почту" required>
             <input class="input input_password" type="password" id="password" name="password" placeholder="Введите пароль" required>
-            <button class="button_submit_login" type="submit">Вход</button>
+            <button class="button_submit_login" type="submit" id="login-btn">Вход</button>
 			<p class="register">Нет аккаунта? <a class="register_link" href="#">Зарегистрируйтесь!</a></p>
-        </form>
+        </div>
 		<p class="copyright">&copy; 2024. MIREA_HOTSPOT</p>
     </main>
     <script>
-        const Email = document.getElementById("email").value;
-        const Password = document.getElementById("password").value;
-        let user = {
-            email: Email, 
-            Password: Password
-        };
-          
-        let response = await fetch('http://backend:8000/login/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(user)
+        document.getElementById("login-btn").addEventListener("click", async function() {
+            const Email = document.getElementById("email").value;
+            const Password = document.getElementById("password").value;
+            let user = {
+                email: Email, 
+                password: Password
+            };
+              
+            let response = await fetch('/api/login/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(user)
+            });
+              
+            let result = await response.json();
+            
+            console.log(result);
+            localStorage.setItem("user", JSON.stringify(result.user));
+            window.location.href = "/";
         });
-          
-          let result = await response.json();
-          alert(result.message);
-      </script>
+    </script>
 </body>
 </html>

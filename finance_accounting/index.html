@@ -114,8 +114,6 @@
 			</div>
 		</div>
 	</div>
-
-
 	<template class="note_template">
 		<div class="history_note">
 			<img class="category_icon" src="" alt="">
@@ -123,5 +121,13 @@
 			<p class="note_cost"></p>
 		</div>
 	</template>
+	<script>
+		if (localStorage.getItem("user") === null) {
+			window.location.href = "/login";
+		}
+		user = JSON.parse(localStorage.getItem("user"));
+		console.log(user);
+		document.querySelector(".header_username").textContent = user.name;
+	</script>
 </body>
 </html>

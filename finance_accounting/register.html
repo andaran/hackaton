@@ -8,13 +8,37 @@
 </head>
 <body>
     <main class="content">
-        <form class="form_register" action="/register_form" method="POST">
-			<input class="input input_name" type="text" name="name" placeholder="Введите ФИО" required>
-            <input class="input input_email" type="email" name="email" placeholder="Введите почту" required>
+        <div class="form_register">
+			<input class="input input_name" type="text" id="name" placeholder="Введите ФИО" required>
+            <input class="input input_email" type="email" id="email" placeholder="Введите почту" required>
             <input class="input input_password" type="password" id="password" name="password" placeholder="Введите пароль" required>
-            <button class="button_submit_register" type="submit">Регистрация</button>
-        </form>
+            <button class="button_submit_register" type="submit" id="reg-btn">Регистрация</button>
+        </div>
 		<p class="copyright">&copy; 2024. MIREA_HOTSPOT</p>
     </main>
+    <script>
+        document.getElementById("reg-btn").addEventListener("click", async function() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            let user = {
+                email: email, 
+                password: password,
+                name: name
+            };
+              
+            let response = await fetch('/api/register/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(user)
+            });
+              
+            let result = await response.json();
+            console.log(result);
+            window.location.href = "/login";
+        });
+    </script>
 </body>
 </html>
