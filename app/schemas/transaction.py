@@ -26,3 +26,14 @@ class TransactionOut(TransactionCreate):
 
     class Config:
         from_attributes = True
+
+class TransactionUpdate(BaseModel):
+    date: Optional[date] = None
+    type: Optional[TransactionType] = None
+    category: Optional[str] = None
+    place: Optional[str] = None
+    amount: Optional[float] = None
+    description: Optional[str] = None
+
+    class Config:
+        from_attributes = True
