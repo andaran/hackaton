@@ -18,27 +18,30 @@
     </main>
     <script>
         document.getElementById("login-btn").addEventListener("click", async function() {
-            const Email = document.getElementById("email").value;
-            const Password = document.getElementById("password").value;
-            let user = {
-                email: Email, 
-                password: Password
-            };
-              
-            let response = await fetch('/api/login/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                body: JSON.stringify(user)
-            });
-              
-            let result = await response.json();
-            
-            console.log(result);
-            localStorage.setItem("user", JSON.stringify(result.user));
-            window.location.href = "/";
-        });
+    const Email = document.getElementById("email").value;
+    const Password = document.getElementById("password").value;
+    let user = {
+        email: Email, 
+        password: Password
+    };
+      
+    let response = await fetch('/api/login/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(user)
+    });
+      
+    let result = await response.json();
+    if (!response.ok) {
+        document.getElementById("email").value = '';
+        document.getElementById("password").value = '';
+    } else {
+        localStorage.setItem("user", JSON.stringify(result.user));
+        window.location.href = "/";
+    }
+});
     </script>
 </body>
 </html>
