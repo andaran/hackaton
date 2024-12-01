@@ -1,0 +1,47 @@
+services:
+  backend:
+    build: /app
+    container_name: backend
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    depends_on:
+      - mysql
+    networks:
+      - backend_network
+    
+  
+  frontend:
+    build: /finance_accounting
+    container_name: frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - backend_network
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container-backend
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword 
+      MYSQL_DATABASE: finance_db
+      MYSQL_USER: finance_user
+      MYSQL_PASSWORD: finance_pass
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+    networks:
+      - backend_network
+
+volumes:
+  mysql_data:
+
+networks:
+  backend_network:
+    driver: bridge

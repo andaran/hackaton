@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOOIIIIDAAAAA</title>
+    <link rel="stylesheet" href="blocks/index.css">
+    <link rel="stylesheet" href="blocks/popup.css">
+</head>
+<body>
+	<header class="header">
+		<div class="header_container">
+			<img src="images/darkmode_white.svg" alt="darkmode" class="header_darkmode">
+			<img src="images/profile_white.svg" alt="profile" class="header_profile">
+			<p class="header_username">Гаррош Адский Крик</p>
+		</div>
+	</header>
+    <main class="content">
+        <div class="content_container">
+			<div class="eni">
+				<p class="income">15000<br class="income_text">Доходы за месяц</br></p>
+				<p class="expenses">10000<br>Расходы за месяц</p>
+			</div>
+			<div class="charts">
+				<div class="chart">
+					<button class="switch_chart">
+
+					</button>
+					<div class="chart_round">
+
+					</div>
+				</div>
+				<div class="stats">
+					<p class="expenses_months"></p>
+					<div class="stats_categories">
+						<div class="stats_category">
+							<p class="category_element">Фастфуд 5000 Р</p>
+						</div>
+						<div class="stats_category">
+							<p class="category_element">Гойда 15 Р</p>
+						</div>
+						<div class="stats_category">
+							<p class="category_element">Унифуд 9999 Р</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="history">
+				<div class="history_title_add_note">
+					<button class="add_note"></button>
+					<p class="history_title">История</p>
+					<p class="plug"></p>
+				</div>
+				<div class="history_note"> <!-- убрать -->
+					<img class="category_icon" src="" alt="category">
+					<p class="note_title">пальто из шерсти бобра</p>
+					<p class="note_cost">-300Р</p>
+				</div> <!-- убрать -->
+			</div>
+		</div>
+    </main>
+
+	<div class="popup popup_type_new_transaction">
+		<div class="popup__content popup__content_new_transaction">
+			<h1 class="popup__title">Добавить операцию</h1>
+			<div class="popup__new-transaction-data">
+				<div class="new-transaction-data__form form-summ">
+					<h2 class="new-transaction-data__title">Сумма</h2>
+
+					<div class="form-summ__choose">
+						<button type="button" name="income" class="form-summ__choose-button"></button>
+						<button type="button" name="expense" class="form-summ__choose-button"></button>
+					</div>
+
+					<input type="text" name="transaction-summ" placeholder="100 &#x20bd;" class="form__item form__item-summ">
+				</div>
+
+				<div class="new-transaction-data__form form-date">
+					<h2 class="new-transaction-data__title">Дата</h2>
+
+					<!-- todo: ежедневно обновляющаяся плейсхолдер дата (js) -->
+					<!-- todo: красивый значок календаря -->
+					<input type="date" name="transaction-date" placeholder="MM/DD/YYYY" class="form__item form__item-date">
+				</div>
+
+				<div class="new-transaction-data__form form-category">
+					<h2 class="new-transaction-data__title">Категория</h2>
+
+					<!-- todo: красивая дропдаун стрелочка (можно сделать чтобы разворачивалась на 180 при открытии формы) -->
+					<select class="form__item form__item-category" name="transaction-category">
+						<option value="fastfood">Фастфуд</option>
+						<option value="clothes_shoes">Одежда и обувь</option>
+						<option value="restaurant">Рестораны</option>
+						<option value="other">Другое</option>
+					</select>
+				</div>
+
+				<div class="new-transaction-data__form form-note">
+					<h2 class="new-transaction-data__title">Комментарий</h2>
+
+					<input type="text" name="transaction-note" placeholder="Пометки для быстрого поиска. Например: аванс" class="form__item form__item-note">
+				</div>
+
+				<div class="new-transaction-data__form form-place">
+					<h2 class="new-transaction-data__title">Место</h2>
+
+					<input type="text" name="transaction-place" placeholder="Унифуд" class="form__item form__item-place">
+				</div>
+			</div>
+
+			<div class="popup_close">
+				<button type="button" name="cancel" class="popup_close__buton">Отмена</button>
+				<button type="button" name="add" class="popup_close__buton">Сохранить</button>
+			</div>
+		</div>
+	</div>
+
+
+	<template class="note_template">
+		<div class="history_note">
+			<img class="category_icon" src="" alt="">
+			<p class="note_title"></p>
+			<p class="note_cost"></p>
+		</div>
+	</template>
+</body>
+</html>

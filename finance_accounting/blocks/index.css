@@ -1,0 +1,222 @@
+body, div, h1, h2, h3, p, input {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 20px 20px;
+    /* background-color: #F2F2F2; */
+	background-color: #414141;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.header_container {
+	display: flex;
+	justify-content: space-between;
+    align-items: center;
+	gap: 15px;
+}
+
+.header_darkmode,
+.header_profile {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+	color: white;
+}
+
+.header_username {
+    font-size: 18px;
+    color: #FFF;
+    font-weight: 500;
+}
+
+.content {
+    padding: 20px;
+    background-color: #FFF;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.content_container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.eni {
+	background-color: #C1C1C1;
+	display: flex;
+	justify-content: space-around;
+    align-items: center;
+	border-radius: 5px;
+	padding: 15px 0;
+}
+
+/* Круговая диаграмма и категории */
+.charts {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.chart {
+    position: relative;
+    width: 150px;
+    height: 150px;
+	margin-left: 10px
+}
+
+.chart_round {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        #3DBE29 0% 40%,
+        #FF3E4D 40% 70%,
+        #5B9BF3 70% 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.chart_round::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background-color: #FFF; /* Цвет внутреннего кольца */
+    border-radius: 50%;
+}
+
+.switch_chart {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/change_diagram.svg);
+	background-size: 80% 80%;
+	background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #E0E0E0;
+    border-radius: 25%;
+    cursor: pointer;
+}
+
+.stats {
+    flex-grow: 1;
+}
+
+.expenses_months {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.stats_categories {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stats_category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.stats_category:nth-child(1) {
+    background-color: #3DBE29;
+    color: #FFF;
+}
+
+.stats_category:nth-child(2) {
+    background-color: #FF3E4D;
+    color: #FFF;
+}
+
+.stats_category:nth-child(3) {
+    background-color: #5B9BF3;
+    color: #FFF;
+}
+
+/* История */
+.history {
+    margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+.history_title_add_note {
+	display: flex;
+	margin-bottom: 10px;
+	justify-content: space-between;
+}
+
+.history_title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.history_note {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.note_title {
+    flex-grow: 1;
+    margin: 0 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.note_cost {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.note_cost.positive {
+    color: #3DBE29;
+}
+
+.note_cost.negative {
+    color: #FF3E4D;
+}
+
+.category_icon {
+    width: 20px;
+    height: 20px;
+}
+
+.add_note {
+    width: 24px;
+    height: 24px;
+    background-color: #3DBE29;
+    color: #FFF;
+    border: none;
+    border-radius: 25%;
+    cursor: pointer;
+	margin-left: 5px;
+}
+
+.plug {
+	width: 24px;
+}

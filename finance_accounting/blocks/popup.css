@@ -1,0 +1,140 @@
+.popup {
+    display: none; /* отвечает за рендер, ставить в flex когда нужно отрендерить */
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.popup__content {
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+
+.popup__content_new_transaction {
+    width: 780px;
+    height: 380px;
+}
+
+.popup__title {
+    align-self: center;
+    margin-top: 9px;
+}
+
+.popup__new-transaction-data {
+    display: grid;
+    grid-template-areas:
+    "form__summ form__date form__category"
+    "form__note form__note form__place";
+    margin: 56px auto 44px;
+}
+
+.new-transaction-data__form {
+    width: 188px;
+}
+
+.new-transaction-data__title {
+    margin-bottom: 9px;
+}
+
+.form-summ {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    grid-area: form__summ;
+    margin-right: 46px;
+    margin-bottom: 26px;
+}
+
+.form-summ__choose {
+    position: absolute;
+    align-self: self-end;
+    top: 0;
+    margin-bottom: 9px;
+}
+
+.form-summ__choose-button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.form-summ__choose-button[name="income"] {
+    background-image: url('../images/income_button.svg');
+}
+
+.form-summ__choose-button[name="expense"] {
+    background-image: url('../images/expense_button.svg');
+}
+
+.form-date {
+    grid-area: form__date;
+    margin-right: 46px;
+    margin-bottom: 26px;
+}
+
+.form-category {
+    grid-area: form__category;
+    margin-bottom: 26px;
+}
+
+.form-note {
+    grid-area: form__note;
+    width: 422px;
+}
+
+.form-place {
+    grid-area: form__place;
+}
+
+.form__item {
+    border-radius: 10px;
+    border-color: transparent;
+    outline: 0.5px solid #4E4E4E;
+    text-align: justify;
+    height: 30px;
+    width: 100%;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.form__item-category {
+    background-color: white;
+}
+
+.popup_close {
+    margin: 0 auto;
+}
+
+.popup_close__buton {
+    border-radius: 10px;
+    border-color: transparent;
+    outline: 0.5px solid #4E4E4E;
+    cursor: pointer;
+    width: 188px;
+    height: 30px;
+}
+
+.popup_close__buton[name="cancel"] {
+    background-color: #F3C0C0;
+    margin-right: 104px;
+}
+
+
+.popup_close__buton[name="add"] {
+    background-color: #C6F3C0;
+}
