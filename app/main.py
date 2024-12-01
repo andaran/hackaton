@@ -15,8 +15,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(auth.router, tags=["Authentication"])
-app.include_router(transactions.router, prefix="/transactions", tags=["Transactions"])
+app.include_router(auth.router, prefix="/api", tags=["Authentication"])
+app.include_router(transactions.router, prefix="/api/transactions", tags=["Transactions"])
 
 if __name__ == "__main__":
     uvicorn.run(app, host='0.0.0.0', port=8000)
